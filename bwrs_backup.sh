@@ -22,9 +22,9 @@
 ###############################################################################################
 
 BASE_DIR="/home/bitwarden/bw"
-#BACKUP_DIR="/home/bitwarden/bw/backup"
 BACKUP_DIR="/backup"
 TMP_DIR="${BACKUP_DIR}/tmp";
+ATTACHMENTS_DIR="${BASE_DIR}/data/attachments"
 
 DB_FILE="${BASE_DIR}/data/db.sqlite3"
 WAL_FILE="${DB_FILE}-wal"
@@ -47,6 +47,8 @@ if [ -f "$SHM_FILE" ]; then
 fi
 
 cp -p $CONFIG_FILE $TMP_DIR
+
+cp -pR $ATTACHMENTS_DIR $TMP_DIR
 
 #chown -R bitwarden:bitwarden ${TMP_DIR}
 #chmod -R go-rwx ${TMP_DIR}
